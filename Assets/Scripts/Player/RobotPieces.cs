@@ -5,10 +5,10 @@ using UnityEngine;
 public class RobotPieces : MonoBehaviour
 {
 
-    public bool hasChestAndRightArm = true;
-    public bool hasLeftArm = true;
-    public bool hasHipAndRightFoot = true;
-    public bool hasLeftFoot = true;
+    public bool hasChestAndRightArm = false;
+    public bool hasLeftArm = false;
+    public bool hasHipAndRightFoot = false;
+    public bool hasLeftFoot = false;
     
     RandomPosition m_randomPosition;
     

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RandomPosition : MonoBehaviour
@@ -13,63 +14,53 @@ public class RandomPosition : MonoBehaviour
     [Header("Piezas")]
     public GameObject[] hidingLocations;
 
-    static System.Random random = new System.Random();
+    public List<int> randomPositions = new List<int>();
 
+    public System.Random random = new System.Random();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-        //    Organizar();
+            Organizar();
         }
     }
 
     // FUNCION PARA ORGANIZAR
     public void Organizar()
     {
-        List<int> vals = GenerateRandom(10);
-        int index = 0;
+        int index = 0 ;
+        List<int> listPositions = GenerateRandom();
 
         foreach (GameObject part in bodyParts)
         {
-            int position = vals[index];
+            int position = listPositions[index];
             Instantiate(part, hidingLocations[position].transform.position, hidingLocations[position].transform.rotation);
             index++;
         }
 
     }
 
-    public static List<int> GenerateRandom(int count)
+    //GENERA 10 NUMEROS AL AZAR SIN REPETICION
+    public List<int> GenerateRandom()
     {
-        // generate count random values.
-        HashSet<int> candidates = new HashSet<int>();
-        while (candidates.Count < count)
+        var set = new HashSet<int>();
+        var nums = new List<int>();
+        int i = 0;
+
+        while (i < 10)
         {
-            // May strike a duplicate.
-            candidates.Add(random.Next());
+            int num;
+            do
+            {
+                num = Random.Range(0, 10);
+            } while (!set.Add(num));
+            set.Add(num);
+            randomPositions.Add(num);
+            i++;
         }
 
-        // load them in to a list.
-        List<int> result = new List<int>();
-        result.AddRange(candidates);
-
-        // shuffle the results:
-        int i = result.Count;
-        while (i > 1)
-        {
-            i--;
-            int k = random.Next(i + 1);
-            int value = result[k];
-            result[k] = result[i];
-            result[i] = value;
-        }
-        return result;
+        return randomPositions;
     }
+
 }
