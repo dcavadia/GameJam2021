@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3534645607268502830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3534645607268502825}
+  - component: {fileID: 8989780547136123348}
+  - component: {fileID: 7437104024595029840}
+  m_Layer: 0
+  m_Name: Enviroment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3534645607268502825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534645607268502830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8989780547136123348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534645607268502830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9fbea90615bde42b035106ebb0ec06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AstronomicalBodyPrefab: {fileID: 5375899577692304071, guid: fc262174c9839624b8b88a911934b145,
+    type: 3}
+  MinDistance: 600
+  MaxDistance: 1000
+  Count: 8
+  Speed: {x: 0, y: 0, z: 1}
+  DistanceCheckInterval: 1
+--- !u!114 &7437104024595029840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534645607268502830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9fbea90615bde42b035106ebb0ec06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AstronomicalBodyPrefab: {fileID: 621209350856025052, guid: 4dac4b01e7c178f43a0c8fbd9454ba91,
+    type: 3}
+  MinDistance: 800
+  MaxDistance: 1000
+  Count: 200
+  Speed: {x: 0, y: 0, z: 1}
+  DistanceCheckInterval: 1
