@@ -48,8 +48,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 07ac206ebf8dd7e4db50734362967ac5, type: 3}
   - {fileID: 8300000, guid: 66426af788ffed34e8b3001767bf0480, type: 3}
   fallingBoxClips:
-  - {fileID: 8300000, guid: e0b21fe3dd1120f42b5d2710781ac210, type: 3}
   - {fileID: 8300000, guid: 88953b0afed58eb46a2a21d29e326ee3, type: 3}
+  - {fileID: 8300000, guid: e0b21fe3dd1120f42b5d2710781ac210, type: 3}
+  - {fileID: 8300000, guid: c0a406f33276c3f43a9d87da71b70a7e, type: 3}
+  - {fileID: 8300000, guid: 094519c972f1ad548973ea0a4bf790ab, type: 3}
+  - {fileID: 8300000, guid: 5859850239af7f34eace9ab4f4784fea, type: 3}
+  - {fileID: 8300000, guid: 096976d5d80b02647a1e33fc5298c03e, type: 3}
+  - {fileID: 8300000, guid: 4d254e2469b6b6041a992c78c43617f7, type: 3}
+  - {fileID: 8300000, guid: 010460e27076e554daeeba28657b7b49, type: 3}
+  - {fileID: 8300000, guid: 8a89ab762e5a8394d9fd05a3725a8864, type: 3}
+  - {fileID: 8300000, guid: 75f51a42422456545b7885e2bfbd6e95, type: 3}
+  - {fileID: 8300000, guid: 2cd1ebbae6dfba548b91f0ec44a0594e, type: 3}
   coinClips:
   - {fileID: 8300000, guid: 1de61f7c47d794e4494b50268d7fb5be, type: 3}
   placingObjectClips:

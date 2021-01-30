@@ -18,14 +18,22 @@ public class Asteroid : AstronomicalBody
             Debug.Log("Asteroid: No se encontro el componente Rigidbody");
         } else {
             //Debug.Log("Asteroid: adding force");
-            m_rigidBody.AddForce(initialForceDirection * initialForceMagnitude, initialForceMode);
-
+            // m_rigidBody.AddForce(initialForceDirection * initialForceMagnitude, initialForceMode);
         }
     }
 
     // Update is called once per frame
     void Update()
     {        
+    }
+
+    public void AddInitialForce() {
+        if (m_rigidBody == null) {
+            Debug.Log("Asteroid: No se encontro el componente Rigidbody");
+        } else {
+            //Debug.Log("Asteroid: adding force");
+            m_rigidBody.AddForce(initialForceDirection * initialForceMagnitude, initialForceMode);
+        }
     }
 
     void OnCollisionEnter(Collision collision)

@@ -12,6 +12,8 @@ public class SceneManager : MonoBehaviour
     public GameObject menu;
     public GameObject transitionCamera;
 
+    public Asteroid asteroid; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class SceneManager : MonoBehaviour
         playableDirector.Play();
         freeLook.enabled = true;
         menu.SetActive(false);
+        asteroid.AddInitialForce();
         StartCoroutine(ActivatePlayerController());
         //reticle.active = true;
     }
