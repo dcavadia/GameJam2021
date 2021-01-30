@@ -40,12 +40,12 @@ public class RandomPosition : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            Organizar();
+        //    Organizar();
         }
     }
 
     // FUNCION PARA ORGANIZAR
-    void Organizar()
+    public void Organizar()
     {
         int cont = 0;
         while (cont < 5)

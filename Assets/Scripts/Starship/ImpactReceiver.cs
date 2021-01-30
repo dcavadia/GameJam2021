@@ -9,8 +9,14 @@ public class ImpactReceiver : MonoBehaviour
     Rigidbody m_rigidBody = null ;
 
     bool underImpactEffect = false;
-    public float shipRotationMagnitude = 50;
-    public float shipTranslationMagnitude = 52;
+
+    public bool UnderImpactEffect {
+        get{ 
+            return underImpactEffect ;
+        }
+    }
+    public float shipRotationMagnitude = 100;
+    public float shipTranslationMagnitude = 20;
 
     // public float impactEffectDuration = 5000;
 
@@ -24,6 +30,15 @@ public class ImpactReceiver : MonoBehaviour
 
     int frame = 0;
 
+    public int spinsAfterImpact = 2; 
+    float rotationAfterImpact = 0;
+
+    public Vector3 explosionPoint ;
+    public float blastRadius;
+    public float explosionPower;
+
+    bool randomPositionApplied = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,41 +47,69 @@ public class ImpactReceiver : MonoBehaviour
         if (m_rigidBody == null) {
             Debug.Log("ReceiveImpact: No se encontro el componente Rigidbody");
         }
+
+        rotationVector = Vector3.Normalize(rotationVector); 
+        rotationAfterImpact = spinsAfterImpact * 360;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (underImpactEffect) {
+            bool forceLightsOn = false;
+            bool forceLightsOff = false;
+
             frame ++;
             secsUnderImpactEffect += Time.deltaTime;
-            float rotMagnitude = shipRotationMagnitude * Time.deltaTime;
+
+            float stopFactor = (rotationLeft) / rotationAfterImpact;
+
+            float rotMagnitude = shipRotationMagnitude * Time.deltaTime * stopFactor;
 
             rotationLeft -= rotMagnitude;
 
             // Shake the ship
-            transform.Translate(  shipTranslationMagnitude * Time.deltaTime * (frame % 2 == 0 ? Vector3.up: Vector3.down )
-                / secsUnderImpactEffect
-            );
+            if (frame % 2 == 0 ) {
+                float translateMagnitude = shipTranslationMagnitude * Time.deltaTime * stopFactor;
+                //Debug.Log(translateMagnitude.ToString());
+                transform.Translate(  translateMagnitude * (frame % 4 == 0 ? Vector3.up: Vector3.down ) );
+            }
 
             // Rotate the ship
             transform.Rotate(rotationVector * rotMagnitude);
 
-            // Stop after a full spin
+            // Stop spins condition. Turn on lights
             if (rotationLeft < 1) {
                 underImpactEffect = false;
+                forceLightsOn = true;
             }
 
+
+            // Split and hide the body pieces. Turn off lights
+            if (stopFactor < 0.5 && !randomPositionApplied ) {
+                randomPositionApplied = true;
+                forceLightsOff = true;
+                AddExplosionForce();
+                RandomPosition randomPosition = GetComponent<RandomPosition>();
+                if (randomPosition != null) {
+                    randomPosition.Organizar();
+                } else {
+                    Debug.Log("ImpactReceiver: No se encontro el componente RandomPosition");
+                }
+            }
            
             Light[] lights = GetComponentsInChildren<Light>();
             foreach (Light light in lights)
             {
-                if (!underImpactEffect)
+                if (forceLightsOn)
                 // effect has ended
                     light.enabled = true;
+                else if (forceLightsOff)
+                    light.enabled = false;
                 else 
                 // blink lights
-                    light.enabled = frame % 2 == 0;
+                   // light.enabled = frame % 2 == 0;
+                   light.enabled = ( UnityEngine.Random.value * stopFactor < 0.25);
             }
 
         }
@@ -77,7 +120,24 @@ public class ImpactReceiver : MonoBehaviour
         underImpactEffect = true;
         secsUnderImpactEffect = 0;
         initialRotation = transform.localEulerAngles;
-        rotationLeft = 360;
+        rotationLeft = rotationAfterImpact;
+        AddExplosionForce();
     }
+
+    void AddExplosionForce () {
+        Collider[] hitColliders = Physics.OverlapSphere(explosionPoint, blastRadius);
+
+        foreach(Collider hitCol in hitColliders) {
+            Rigidbody rigidBody = hitCol.GetComponent<Rigidbody>();
+            // Debug.Log("Collider found");
+
+            if (rigidBody != null) {
+                // Debug.Log("Rigid body found");
+                rigidBody.AddExplosionForce(explosionPower, explosionPoint, blastRadius, 1, ForceMode.Impulse);
+            }
+        }
+    }
+
+  
 
 }
