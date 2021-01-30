@@ -2138,7 +2138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25524934}
   m_LocalRotation: {x: 0, y: -0.74564505, z: 0, w: 0.6663434}
-  m_LocalPosition: {x: 45.922493, y: 2.6230001, z: -0.7314826}
+  m_LocalPosition: {x: 45.922493, y: 1.733, z: -0.7314826}
   m_LocalScale: {x: 1, y: 1.3944516, z: 0.72691846}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9788,6 +9788,7 @@ GameObject:
   - component: {fileID: 229141506}
   - component: {fileID: 229141505}
   - component: {fileID: 229141504}
+  - component: {fileID: 229141508}
   m_Layer: 0
   m_Name: 3rdPersonController
   m_TagString: Player
@@ -9803,7 +9804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229141502}
   m_LocalRotation: {x: -0, y: -0.74564505, z: -0, w: 0.6663434}
-  m_LocalPosition: {x: 43.99106, y: 1, z: -1.4522843}
+  m_LocalPosition: {x: 43.99106, y: 0.11, z: -1.4522843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 559064876}
@@ -9881,6 +9882,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &229141508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229141502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b93dc6a0b1b654698a43851789ccc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasChestAndRightArm: 1
+  hasLeftArm: 1
+  hasHipAndRightFoot: 1
+  hasLeftFoot: 1
 --- !u!1 &234700739
 GameObject:
   m_ObjectHideFlags: 0
@@ -87727,7 +87744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087053982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.922493, y: 2.6230001, z: -0.7314826}
+  m_LocalPosition: {x: 45.922493, y: 1.733, z: -0.7314826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 167416078}
