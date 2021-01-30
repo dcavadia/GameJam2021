@@ -44,9 +44,10 @@ public class ImpactReceiver : MonoBehaviour
 
     bool randomPositionApplied = false;
 
-    RandomPosition m_randomPosition;
-
     Light[] m_lights;
+
+    GameObject m_player ;
+    RobotPieces m_playerRobotPieces;
 
     // Start is called before the first frame update
     void Start()
@@ -63,13 +64,19 @@ public class ImpactReceiver : MonoBehaviour
             Debug.Log("ReceiveImpact: No se encontro el componente SfxSoundSystem");
         }
 
-        m_randomPosition = GetComponent<RandomPosition>();
-
-        if(m_randomPosition == null) {
-            Debug.Log("ImpactReceiver: No se encontro el componente RandomPosition");
-        }
-
+        
         m_lights = GetComponentsInChildren<Light>();
+
+        m_player = GameObject.FindWithTag("Player");
+
+        if (m_player == null) {
+            Debug.Log("ImpactReceiver: No se encontro el objeto Player");
+        } else {
+            m_playerRobotPieces = m_player.GetComponentInChildren<RobotPieces>();
+            if (m_playerRobotPieces == null) {
+                Debug.Log("ImpactReceiver: No se encontro el componente RobotPieces");
+            }
+        }
 
         rotationVector = Vector3.Normalize(rotationVector); 
         rotationAfterImpact = spinsAfterImpact * 360;
@@ -114,10 +121,10 @@ public class ImpactReceiver : MonoBehaviour
                 forceLightsOff = true;
                 AddExplosionForce();
                 
-                if (m_randomPosition != null) {
-                    m_randomPosition.Organizar();
+                if (m_playerRobotPieces != null) {
+                    m_playerRobotPieces.SplitPieces();
                 } else {
-                    Debug.Log("ImpactReceiver: No se encontro el componente RandomPosition");
+                    Debug.Log("ImpactReceiver: No se encontro el componente RobotPieces");
                 }
             }
            
@@ -148,7 +155,7 @@ public class ImpactReceiver : MonoBehaviour
     }
 
     public void OnReceiveImpact () {
-        Debug.Log("ImpactReceiver: Impacto recibido");
+        // Debug.Log("ImpactReceiver: Impacto recibido");
         underImpactEffect = true;
         secsUnderImpactEffect = 0;
         initialRotation = transform.localEulerAngles;
@@ -157,7 +164,7 @@ public class ImpactReceiver : MonoBehaviour
     }
 
     public void AddExplosionForce () {
-        Debug.Log("AddExplosionForce");
+        // Debug.Log("AddExplosionForce");
         Collider[] hitColliders = Physics.OverlapSphere(explosionPoint, blastRadius);
 
         foreach(Collider hitCol in hitColliders) {
