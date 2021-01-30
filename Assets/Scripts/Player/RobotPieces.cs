@@ -31,7 +31,7 @@ public class RobotPieces : MonoBehaviour
 
     public void SplitPieces () {
         if (m_randomPosition != null) {
-            m_randomPosition.Organizar();
+            //m_randomPosition.Organizar();
             hasChestAndRightArm =false;
             hasLeftArm =false;
             hasHipAndRightFoot =false;
