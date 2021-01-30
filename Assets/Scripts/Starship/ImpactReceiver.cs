@@ -1,3 +1,7 @@
+/**
+Use this helper functions:
+OnReceiveImpact ()
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +11,7 @@ public class ImpactReceiver : MonoBehaviour
 {
     public float thrust = 1.0f;
     Rigidbody m_rigidBody = null ;
+    SfxSoundSystem m_sfxSoundSystem = null;
 
     bool underImpactEffect = false;
 
@@ -39,6 +44,10 @@ public class ImpactReceiver : MonoBehaviour
 
     bool randomPositionApplied = false;
 
+    RandomPosition m_randomPosition;
+
+    Light[] m_lights;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +56,20 @@ public class ImpactReceiver : MonoBehaviour
         if (m_rigidBody == null) {
             Debug.Log("ReceiveImpact: No se encontro el componente Rigidbody");
         }
+
+        m_sfxSoundSystem = GetComponentInChildren<SfxSoundSystem>();
+
+        if (m_sfxSoundSystem == null) {
+            Debug.Log("ReceiveImpact: No se encontro el componente SfxSoundSystem");
+        }
+
+        m_randomPosition = GetComponent<RandomPosition>();
+
+        if(m_randomPosition == null) {
+            Debug.Log("ImpactReceiver: No se encontro el componente RandomPosition");
+        }
+
+        m_lights = GetComponentsInChildren<Light>();
 
         rotationVector = Vector3.Normalize(rotationVector); 
         rotationAfterImpact = spinsAfterImpact * 360;
@@ -90,16 +113,16 @@ public class ImpactReceiver : MonoBehaviour
                 randomPositionApplied = true;
                 forceLightsOff = true;
                 AddExplosionForce();
-                RandomPosition randomPosition = GetComponent<RandomPosition>();
-                if (randomPosition != null) {
-                    randomPosition.Organizar();
+                
+                if (m_randomPosition != null) {
+                    m_randomPosition.Organizar();
                 } else {
                     Debug.Log("ImpactReceiver: No se encontro el componente RandomPosition");
                 }
             }
            
-            Light[] lights = GetComponentsInChildren<Light>();
-            foreach (Light light in lights)
+            // Turn on/off lights
+            foreach (Light light in m_lights)
             {
                 if (forceLightsOn)
                 // effect has ended
@@ -110,6 +133,15 @@ public class ImpactReceiver : MonoBehaviour
                 // blink lights
                    // light.enabled = frame % 2 == 0;
                    light.enabled = ( UnityEngine.Random.value * stopFactor < 0.25);
+            }
+
+            // Play sfx
+            if (m_sfxSoundSystem != null && !m_sfxSoundSystem.IsPlaying) {
+                if (UnityEngine.Random.value * stopFactor > 0.1) {
+                    AudioClip [] clips = UnityEngine.Random.value > 0.5 ?
+                        m_sfxSoundSystem.fallingBoxClips : m_sfxSoundSystem.fallClips;
+                    m_sfxSoundSystem.PlayRandomClip(clips);
+                }
             }
 
         }
@@ -124,7 +156,8 @@ public class ImpactReceiver : MonoBehaviour
         AddExplosionForce();
     }
 
-    void AddExplosionForce () {
+    public void AddExplosionForce () {
+        Debug.Log("AddExplosionForce");
         Collider[] hitColliders = Physics.OverlapSphere(explosionPoint, blastRadius);
 
         foreach(Collider hitCol in hitColliders) {
@@ -135,6 +168,10 @@ public class ImpactReceiver : MonoBehaviour
                 // Debug.Log("Rigid body found");
                 rigidBody.AddExplosionForce(explosionPower, explosionPoint, blastRadius, 1, ForceMode.Impulse);
             }
+        }
+
+        if (m_sfxSoundSystem != null) {
+            m_sfxSoundSystem.PlayRandomClip(m_sfxSoundSystem.explosionClips);
         }
     }
 
