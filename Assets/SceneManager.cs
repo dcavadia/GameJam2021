@@ -13,11 +13,20 @@ public class SceneManager : MonoBehaviour
     public GameObject transitionCamera;
 
     public Asteroid asteroid; 
+    public StarShip starShip;
 
+    MusicSoundSystem m_musicSoundSystem = null;
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_musicSoundSystem = GetComponentInChildren<MusicSoundSystem>();
+
+        if (m_musicSoundSystem == null) {
+            Debug.Log("SceneManager: No se encontro el componente MusicSoundSystem");
+        }
+        else {
+            m_musicSoundSystem.PlayMenuMusic();
+        }
     }
 
     // Update is called once per frame
@@ -34,6 +43,8 @@ public class SceneManager : MonoBehaviour
         asteroid.AddInitialForce();
         StartCoroutine(ActivatePlayerController());
         //reticle.active = true;
+        if (m_musicSoundSystem != null)
+            m_musicSoundSystem.PlayGameMusic();
     }
 
     IEnumerator ActivatePlayerController()
@@ -44,5 +55,8 @@ public class SceneManager : MonoBehaviour
         transitionCamera.SetActive(false);
         characterController.enabled = true;
         reticle.SetActive(true);
+
+        if (m_musicSoundSystem != null)
+            starShip.OnCameraEnter();
     }
 }
