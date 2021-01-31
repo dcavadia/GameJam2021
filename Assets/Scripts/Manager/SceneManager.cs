@@ -14,6 +14,7 @@ public class SceneManager : MonoBehaviour
 
     public Asteroid asteroid; 
     public StarShip starShip;
+    public TimerController timer = default;
 
 
     MusicSoundSystem m_musicSoundSystem = null;
@@ -58,7 +59,7 @@ public class SceneManager : MonoBehaviour
         transitionCamera.SetActive(false);
         characterController.enabled = true;
         reticle.SetActive(true);
-
+        timer.StartTimer();
         if (m_musicSoundSystem != null)
             starShip.OnCameraEnter();
     }
