@@ -14,7 +14,8 @@ public class StartMenu : MonoBehaviour
     [SerializeField] GameObject startButton = default;
 
     [Header("Actions Helpers")]
-    [SerializeField] GameObject canvasinGame = default;
+    [SerializeField] GameObject canvasInGame = default;
+    [SerializeField] GameObject canvasCredits = default;
 
     private void Update() {
         if ( Input.GetButtonDown("Cancel") )
@@ -27,23 +28,37 @@ public class StartMenu : MonoBehaviour
         returnToMain();
     }
 
-    public void returnToMain(){
+    public void returnToMain()
+    {
         firstPanel.SetActive(true);
         playButton.SetActive(true);
         optionsPanel.SetActive(false);
+        canvasCredits.SetActive(false);
         EventSystem.current.SetSelectedGameObject(playButton);
     }
 
-    public void pressPlay(){
+    public void pressPlay()
+    {
         firstPanel.SetActive(false);
         optionsPanel.SetActive(true);
         playButton.SetActive(false);
         EventSystem.current.SetSelectedGameObject(startButton);
     }
 
-    public void StartGame(){
+    public void StartGame()
+    {
         optionsPanel.SetActive(false);
         gameObject.SetActive(false);
-        canvasinGame.SetActive(true);
+        canvasInGame.SetActive(true);
+    }
+
+    public void Credits()
+    {
+        canvasCredits.SetActive(true);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

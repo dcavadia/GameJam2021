@@ -22,4 +22,9 @@ public class buttonAnimations : MonoBehaviour
         if ( !thisAnim ) thisAnim = gameObject.GetComponent<Animator>();
         thisAnim.SetBool("selected", false);
     }
+
+    private void OnEnable() 
+    {
+        onDeselect();
+    }
 }
