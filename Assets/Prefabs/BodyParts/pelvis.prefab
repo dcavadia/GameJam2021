@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2593875500659272168}
   m_Layer: 0
   m_Name: pelvis
-  m_TagString: BodyPart
+  m_TagString: pelvis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.58, y: 1.06, z: 0.7}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0.06, y: 0.48, z: 0}
 --- !u!1 &1157161644979247861
 GameObject:
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 190317100383725233}
   m_Layer: 0
   m_Name: Default
-  m_TagString: Untagged
+  m_TagString: pelvis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

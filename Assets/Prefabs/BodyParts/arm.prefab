@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2212988267242636286}
   m_Layer: 0
   m_Name: Default
-  m_TagString: Untagged
+  m_TagString: arm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 5991689367193135504}
   m_Layer: 0
   m_Name: arm
-  m_TagString: BodyPart
+  m_TagString: arm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,5 +124,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.25152764, y: 0.85596263, z: 0.23110655}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0.32102054, y: 0.85201865, z: -0.028599367}

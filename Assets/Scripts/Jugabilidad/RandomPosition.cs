@@ -11,10 +11,10 @@ public class RandomPosition : MonoBehaviour
     public GameObject[] bodyParts;
 
     //LOCATIONS
-    [Header("Piezas")]
+    [Header("Locaciones")]
     public GameObject[] hidingLocations;
 
-    public List<int> randomPositions = new List<int>();
+    /*public*/ List<int> randomPositions = new List<int>();
 
     public System.Random random = new System.Random();
 

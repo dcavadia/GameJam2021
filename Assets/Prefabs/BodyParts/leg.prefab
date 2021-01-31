@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4531443347091574469}
   m_Layer: 0
   m_Name: Default
-  m_TagString: Untagged
+  m_TagString: leg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1641287145739299436}
   m_Layer: 0
   m_Name: leg
-  m_TagString: BodyPart
+  m_TagString: leg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,5 +124,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.82, z: 0.39}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0.16, y: 0.36, z: 0.03}

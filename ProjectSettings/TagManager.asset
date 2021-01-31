@@ -4,9 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - StarShip
   - Marker
   - BodyPart
   - Asteroid
+  - Asteroid
+  - arm
+  - pelvis
+  - chest
+  - leg
   layers:
   - Default
   - TransparentFX
