@@ -5,10 +5,10 @@ using UnityEngine;
 public class RobotPieces : MonoBehaviour
 {
 
-    public static bool hasChestAndRightArm = false;
-    public static bool hasLeftArm = false;
-    public static bool hasHipAndRightFoot = false;
-    public static bool hasLeftFoot = false;
+    public static bool hasHipAndRightFoot = true;
+    public static bool hasLeftFoot = true;
+    public static bool hasChestAndRightArm = true;
+    public static bool hasLeftArm = true;
     
     RandomPosition m_randomPosition;
     
@@ -32,6 +32,10 @@ public class RobotPieces : MonoBehaviour
     public void SplitPieces () {
         if (m_randomPosition != null) {
             m_randomPosition.Organizar();
+            hasHipAndRightFoot = false;
+            hasLeftFoot = false;
+            hasChestAndRightArm = false;
+            hasLeftArm = false;
         } else {
             Debug.Log("ImpactReceiver: No se encontro el componente RandomPosition");
         }
@@ -43,13 +47,17 @@ public class RobotPieces : MonoBehaviour
         Debug.Log("Agarrado!");
         switch (piece)
         {
-            case RobotPieceId.LeftFoot:
-                break;
             case RobotPieceId.HipAndRightFoot:
+                 hasHipAndRightFoot = true;
+                break;
+            case RobotPieceId.LeftFoot:
+                hasLeftFoot = true;
                 break;
             case RobotPieceId.ChestAndRightArm:
+                 hasChestAndRightArm = true;
                 break;
             case RobotPieceId.LeftArm:
+                hasLeftArm = true;
                 break;
             default:
                 break;

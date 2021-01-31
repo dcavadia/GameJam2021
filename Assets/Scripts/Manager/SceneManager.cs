@@ -7,7 +7,7 @@ public class SceneManager : MonoBehaviour
 {
     public PlayableDirector playableDirector;
     public FreeLookCameraOverride freeLook;
-    public CharacterMovementNoCamera characterController;
+    public RobotCharacterMovementNoCamera characterController;
     public GameObject reticle;
     public GameObject menu;
     public GameObject transitionCamera;

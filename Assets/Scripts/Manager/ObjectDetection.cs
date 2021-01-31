@@ -23,32 +23,29 @@ public class ObjectDetection : MonoBehaviour
                 {
                     switch (hit.collider.name)
                     {
+                        case "pelvis":
+                            RobotPieces.AddPiece(RobotPieceId.HipAndRightFoot);
+                            break;
+                        case "leg":
+                            if (!RobotPieces.hasHipAndRightFoot)
+                            {
+                                RobotPieces.AddPiece(RobotPieceId.LeftFoot);
+                            }
+                            break;
+                        case "chest":
+                            if (RobotPieces.hasLeftFoot)
+                            {
+                                RobotPieces.AddPiece(RobotPieceId.ChestAndRightArm);
+                            }
+                            break;
                         case "arm":
                             if (RobotPieces.hasChestAndRightArm)
                             {
                                 RobotPieces.AddPiece(RobotPieceId.LeftArm);
                             }                       
                             break;
-                        case "chest":
-                            if (RobotPieces.hasHipAndRightFoot)
-                            {
-                                RobotPieces.AddPiece(RobotPieceId.ChestAndRightArm);
-                            }
-                            break;
-                        case "leg":
-                            if (!RobotPieces.hasLeftFoot)
-                            {
-                                RobotPieces.AddPiece(RobotPieceId.LeftFoot);
-                            }
-                            break;
-                        case "pelvis":
-                            if (RobotPieces.hasLeftFoot)
-                            {
-                                RobotPieces.AddPiece(RobotPieceId.HipAndRightFoot);
-                            }
-                            break;
                         default:
-                            RobotPieces.AddPiece(RobotPieceId.LeftArm);
+                           // RobotPieces.AddPiece(RobotPieceId.LeftArm);
                             break;
                     }
                 }
