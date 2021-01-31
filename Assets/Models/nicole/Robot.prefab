@@ -2547,9 +2547,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90472c3900e0adc45ac2576a64726385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyParts: []
+  bodyParts:
+  - {fileID: 2212362850121528778, guid: dee15bdc7101ce246bbaa2d49be9461f, type: 3}
+  - {fileID: 3357002703453942320, guid: 75596e38971489e488373d2a7fd6ff09, type: 3}
+  - {fileID: 4532612337175771377, guid: b970d7ec54d95714d8acfe1d79719c7c, type: 3}
+  - {fileID: 189675875570323589, guid: 921a50a2365e65d4cb89642440e38108, type: 3}
   hidingLocations: []
-  randomPositions: 
 --- !u!1 &5025433305594690239
 GameObject:
   m_ObjectHideFlags: 0
