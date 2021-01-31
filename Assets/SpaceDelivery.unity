@@ -3261,6 +3261,11 @@ PrefabInstance:
       propertyPath: CameraRadius
       value: 0.12
       objectReference: {fileID: 0}
+    - target: {fileID: 7435475214608109964, guid: ec0b46de1984b9a42b44db07fc8038a6,
+        type: 3}
+      propertyPath: CameraDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7435475216033237346, guid: ec0b46de1984b9a42b44db07fc8038a6,
         type: 3}
       propertyPath: m_RootOrder
@@ -3274,12 +3279,12 @@ PrefabInstance:
     - target: {fileID: 7435475216033237346, guid: ec0b46de1984b9a42b44db07fc8038a6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.56
+      value: -4.41
       objectReference: {fileID: 0}
     - target: {fileID: 7435475216033237346, guid: ec0b46de1984b9a42b44db07fc8038a6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.45
+      value: -25.766138
       objectReference: {fileID: 0}
     - target: {fileID: 7435475216033237346, guid: ec0b46de1984b9a42b44db07fc8038a6,
         type: 3}
@@ -4997,7 +5002,7 @@ PrefabInstance:
     - target: {fileID: 7921378213587376755, guid: ddf5667bf72e4fd48946d0fc01f73c9e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.38268343
+      value: 0.3826835
       objectReference: {fileID: 0}
     - target: {fileID: 7921378213587376755, guid: ddf5667bf72e4fd48946d0fc01f73c9e,
         type: 3}
@@ -5007,7 +5012,7 @@ PrefabInstance:
     - target: {fileID: 7921378213587376755, guid: ddf5667bf72e4fd48946d0fc01f73c9e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000011404857
+      value: -0.000000011404858
       objectReference: {fileID: 0}
     - target: {fileID: 7921378213587376755, guid: ddf5667bf72e4fd48946d0fc01f73c9e,
         type: 3}
@@ -5637,17 +5642,17 @@ PrefabInstance:
     - target: {fileID: 5125550277720785336, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.34887096
+      value: 0.34887102
       objectReference: {fileID: 0}
     - target: {fileID: 5125550277720785336, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000115689325
+      value: -3.5352407e-23
       objectReference: {fileID: 0}
     - target: {fileID: 5125550277720785336, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000004306647
+      value: 7.451508e-24
       objectReference: {fileID: 0}
     - target: {fileID: 6885393484304756910, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}
@@ -5682,12 +5687,12 @@ PrefabInstance:
     - target: {fileID: 7435862610035860604, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016014004
+      value: 0.000000016013763
       objectReference: {fileID: 0}
     - target: {fileID: 7435862610035860604, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000062944507
+      value: -0.0000000062943566
       objectReference: {fileID: 0}
     - target: {fileID: 8694462277113482204, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}
@@ -5712,17 +5717,17 @@ PrefabInstance:
     - target: {fileID: 8694462277113482204, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.3826834
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 8694462277113482204, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000027533757
+      value: 3.0118454e-15
       objectReference: {fileID: 0}
     - target: {fileID: 8694462277113482204, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000011404854
+      value: -1.8309507e-15
       objectReference: {fileID: 0}
     - target: {fileID: 8735006475810590265, guid: 9e02041f1609b1b4f831c8ca29d66af9,
         type: 3}

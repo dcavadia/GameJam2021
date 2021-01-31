@@ -98,7 +98,7 @@ public class RobotCharacterMovementNoCamera : MonoBehaviour
         
 
         isIdle = input.y == 0;
-        //Debug.Log(speed.ToString());
+        Debug.Log(speed.ToString());
 
         anim.SetBool("isIdle", isIdle);
         anim.SetInteger("pieces", pieces);
