@@ -58,13 +58,6 @@ public class ImpactReceiver : MonoBehaviour
             Debug.Log("ReceiveImpact: No se encontro el componente Rigidbody");
         }
 
-        m_sfxSoundSystem = GetComponentInChildren<SfxSoundSystem>();
-
-        if (m_sfxSoundSystem == null) {
-            Debug.Log("ReceiveImpact: No se encontro el componente SfxSoundSystem");
-        }
-
-        
         m_lights = GetComponentsInChildren<Light>();
 
         m_player = GameObject.FindWithTag("Player");

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RobotPieces : MonoBehaviour
-{
-
-    public static bool hasHipAndRightFoot = true;
+{    public static bool hasHipAndRightFoot = true;
     public static bool hasLeftFoot = true;
     public static bool hasChestAndRightArm = true;
     public static bool hasLeftArm = true;
@@ -21,6 +19,7 @@ public class RobotPieces : MonoBehaviour
             Debug.Log("RobotPieces: No se encontro el componente RandomPosition");
         }
 
+       
     }
 
     // Update is called once per frame
@@ -48,7 +47,7 @@ public class RobotPieces : MonoBehaviour
         switch (piece)
         {
             case RobotPieceId.HipAndRightFoot:
-                 hasHipAndRightFoot = true;
+                hasHipAndRightFoot = true;
                 break;
             case RobotPieceId.LeftFoot:
                 hasLeftFoot = true;

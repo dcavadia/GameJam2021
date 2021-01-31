@@ -64,7 +64,11 @@ public class RobotCharacterMovementNoCamera : MonoBehaviour
 
 
         // isIdle = ! (Input.GetKey(sprintJoystick) || Input.GetKey(sprintKeyboard)) && speed > 0;
-        
+        if ( Input.GetKey(KeyCode.Keypad0) ) {
+            if (RobotPieces.hasHipAndRightFoot)
+                m_robotPieces.SplitPieces();
+        }
+
         {
             pieces = 1; // head
             if (RobotPieces.hasHipAndRightFoot) pieces ++;
@@ -77,6 +81,7 @@ public class RobotCharacterMovementNoCamera : MonoBehaviour
         if ( Input.GetKey(sprintKeyboard) ) {
             pieces = (pieces + 1) % 5 + 1;
         }*/
+        /*
         if ( Input.GetKey(KeyCode.Keypad1) ) {
             pieces = 1;
         }
@@ -93,12 +98,13 @@ public class RobotCharacterMovementNoCamera : MonoBehaviour
         if ( Input.GetKey(KeyCode.Keypad5) ) {
             pieces = 5;
         }
-
+        */
+        
 
         
 
         isIdle = input.y == 0;
-        Debug.Log(speed.ToString());
+        //Debug.Log(speed.ToString());
 
         anim.SetBool("isIdle", isIdle);
         anim.SetInteger("pieces", pieces);

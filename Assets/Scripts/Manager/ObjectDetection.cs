@@ -7,48 +7,92 @@ public class ObjectDetection : MonoBehaviour
     RaycastHit hit;
     Ray ray;
 
+    SfxSoundSystem m_sfxSoundSystem = null;
     public GameObject reticle;
-    public Animator anim;
+    // public Animator anim;
 
+    void Start()
+    {       
+        m_sfxSoundSystem = GetComponentInChildren<SfxSoundSystem>();
+
+        if (m_sfxSoundSystem == null) {
+            Debug.Log("ObjectDetection: No se encontro el componente SfxSoundSystem");
+        }
+    }
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(reticle.transform.position);
 
-        if (Physics.Raycast(ray, out hit))
+       
+        // Debug.Log("Hit!");
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
         {
-            if (hit.collider.gameObject.tag == "BodyPart")
+            RaycastHit[] hits;
+            hits = Physics.RaycastAll(ray);
+
+            //if (Physics.Raycast(ray, out hit))
+            for (int i = 0; i < hits.Length; i++)
             {
-                Debug.Log("Pieza!");
-                if (Input.GetKeyDown(KeyCode.E))
+                RaycastHit hit = hits[i];
+
+
+
+                //Debug.Log("Grabbing with E!");
+                    
+                // Debug.Log(hit.collider.gameObject.tag);
+                bool added = false;
+                bool cantAdd = false;
+                switch (hit.collider.gameObject.tag)
                 {
-                    switch (hit.collider.name)
-                    {
-                        case "pelvis":
-                            RobotPieces.AddPiece(RobotPieceId.HipAndRightFoot);
-                            break;
-                        case "leg":
-                            if (!RobotPieces.hasHipAndRightFoot)
-                            {
-                                RobotPieces.AddPiece(RobotPieceId.LeftFoot);
-                            }
-                            break;
-                        case "chest":
-                            if (RobotPieces.hasLeftFoot)
-                            {
-                                RobotPieces.AddPiece(RobotPieceId.ChestAndRightArm);
-                            }
-                            break;
-                        case "arm":
-                            if (RobotPieces.hasChestAndRightArm)
-                            {
-                                RobotPieces.AddPiece(RobotPieceId.LeftArm);
-                            }                       
-                            break;
-                        default:
-                           // RobotPieces.AddPiece(RobotPieceId.LeftArm);
-                            break;
+                    case "pelvis":
+                        RobotPieces.AddPiece(RobotPieceId.HipAndRightFoot);
+                        added = true;
+                        break;
+                    case "leg":
+                        if (!RobotPieces.hasHipAndRightFoot)
+                        {
+                            RobotPieces.AddPiece(RobotPieceId.LeftFoot);
+                            added = true;
+                        } else {
+                            cantAdd = true;
+                        }
+                        break;
+                    case "chest":
+                        if (RobotPieces.hasLeftFoot)
+                        {
+                            RobotPieces.AddPiece(RobotPieceId.ChestAndRightArm);
+                            added = true;
+                        } else {
+                            cantAdd = true;
+                        }
+                        break;
+                    case "arm":
+                        if (RobotPieces.hasChestAndRightArm)
+                        {
+                            RobotPieces.AddPiece(RobotPieceId.LeftArm);
+                            added = true;
+                        } else {
+                            cantAdd = true;
+                        }
+                        break;
+                    default:
+                    // RobotPieces.AddPiece(RobotPieceId.LeftArm);
+                        break;
+                }
+                if (added) { 
+                    Destroy(hit.collider.gameObject);
+                    // Play sfx
+                    if (m_sfxSoundSystem != null) {
+                        m_sfxSoundSystem.PlayRandomClip(m_sfxSoundSystem.powerUpClips);
                     }
                 }
+                if (cantAdd) {
+                    // Play sfx
+                    if (m_sfxSoundSystem != null) {
+                        m_sfxSoundSystem.PlayRandomClip(m_sfxSoundSystem.screamClips);
+                    }
+                }
+                    
             }
         }
     }

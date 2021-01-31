@@ -2424,6 +2424,7 @@ GameObject:
   - component: {fileID: 3251502845001938105}
   - component: {fileID: 2238418584646987577}
   - component: {fileID: 6816167290428125868}
+  - component: {fileID: 7244231687012904071}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Player
@@ -2553,6 +2554,39 @@ MonoBehaviour:
   - {fileID: 4532612337175771377, guid: b970d7ec54d95714d8acfe1d79719c7c, type: 3}
   - {fileID: 189675875570323589, guid: 921a50a2365e65d4cb89642440e38108, type: 3}
   hidingLocations: []
+--- !u!114 &7244231687012904071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5003168023765610191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf45c70faa62e741a3e8646468edf49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipAlarmClips: []
+  fallingBoxClips: []
+  coinClips: []
+  placingObjectClips: []
+  staticNoiseClips: []
+  explosionClips: []
+  screamClips: []
+  jumpClips: []
+  walkClips: []
+  powerUpClips: []
+  doorOpenClips: []
+  grabPieceClips: []
+  fallClips: []
+  spaceAtmosphereClips: []
+  introClips: []
+  vibrationClips: []
+  uiSfx1Clips: []
+  uiSfx2Clips: []
+  uiSfx3Clips: []
+  uiSfx4Clips: []
+  uiSfx5Clips: []
 --- !u!1 &5025433305594690239
 GameObject:
   m_ObjectHideFlags: 0

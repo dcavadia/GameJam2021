@@ -15,7 +15,6 @@ public class SceneManager : MonoBehaviour
     public Asteroid asteroid; 
     public StarShip starShip;
 
-    public Animator anim;
 
     MusicSoundSystem m_musicSoundSystem = null;
     // Start is called before the first frame update
@@ -44,9 +43,9 @@ public class SceneManager : MonoBehaviour
         menu.SetActive(false);
         asteroid.AddInitialForce();
         StartCoroutine(ActivatePlayerController());
-        //anim.SetBool("IdleHead", true);
-        //anim.SetBool("WalkHead", false);
-        //reticle.active = true;
+        
+        
+        reticle.active = true;
         if (m_musicSoundSystem != null)
             m_musicSoundSystem.PlayGameMusic();
     }
