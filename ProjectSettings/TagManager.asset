@@ -8,6 +8,7 @@ TagManager:
   - StarShip
   - Marker
   - BodyPart
+  - Asteroid
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1521960229
     locked: 0
