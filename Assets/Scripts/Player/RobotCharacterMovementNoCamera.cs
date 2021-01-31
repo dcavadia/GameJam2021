@@ -21,6 +21,7 @@ public class RobotCharacterMovementNoCamera : MonoBehaviour
 
     RobotPieces m_robotPieces;
     
+    SfxSoundSystem m_sfxSoundSystem = null;
 
     bool isIdle = true;
     int pieces = 5;
@@ -34,6 +35,12 @@ public class RobotCharacterMovementNoCamera : MonoBehaviour
             Debug.Log("RobotCharacterMovementNoCamera: No se encontro el componente RobotPieces");
         }
 
+
+        m_sfxSoundSystem = GetComponentInChildren<SfxSoundSystem>();
+
+        if (m_sfxSoundSystem == null) {
+            Debug.Log("ObjectDetection: No se encontro el componente SfxSoundSystem");
+        }
     }
 
 
@@ -64,10 +71,12 @@ public class RobotCharacterMovementNoCamera : MonoBehaviour
 
 
         // isIdle = ! (Input.GetKey(sprintJoystick) || Input.GetKey(sprintKeyboard)) && speed > 0;
+        /*
         if ( Input.GetKey(KeyCode.Keypad0) ) {
             if (RobotPieces.hasHipAndRightFoot)
                 m_robotPieces.SplitPieces();
         }
+        /*/
 
         {
             pieces = 1; // head
@@ -104,6 +113,10 @@ public class RobotCharacterMovementNoCamera : MonoBehaviour
         
 
         isIdle = input.y == 0;
+
+        if (!isIdle && m_sfxSoundSystem != null && !m_sfxSoundSystem.IsPlaying) {
+            m_sfxSoundSystem.PlayRandomClip(m_sfxSoundSystem.walkClips);
+        }
         //Debug.Log(speed.ToString());
 
         anim.SetBool("isIdle", isIdle);
