@@ -9,7 +9,7 @@ public class SceneManager : MonoBehaviour
     public FreeLookCameraOverride freeLook;
     public RobotCharacterMovementNoCamera characterController;
     public GameObject reticle;
-    public GameObject menu;
+   // public GameObject menu;
     public GameObject transitionCamera;
 
     public Asteroid asteroid; 
@@ -41,7 +41,7 @@ public class SceneManager : MonoBehaviour
     {
         playableDirector.Play();
         freeLook.enabled = true;
-        menu.SetActive(false);
+     //   menu.SetActive(false);
         asteroid.AddInitialForce();
         StartCoroutine(ActivatePlayerController());
         

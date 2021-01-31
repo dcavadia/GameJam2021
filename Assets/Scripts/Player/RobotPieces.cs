@@ -9,6 +9,8 @@ public class RobotPieces : MonoBehaviour
     public static bool hasLeftArm = true;
     
     RandomPosition m_randomPosition;
+
+    public static TimerController timerController;
     
     // Start is called before the first frame update
     void Start()
@@ -57,6 +59,7 @@ public class RobotPieces : MonoBehaviour
                 break;
             case RobotPieceId.LeftArm:
                 hasLeftArm = true;
+                timerController.WinGame();
                 break;
             default:
                 break;

@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Intro.unity
     guid: 3a4636e34c682954ea46042eeb87c4fa
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/DoubleGameSandbox.unity
-    guid: d9b2ef66d24d5c34b9b3257562711a17
+    path: Assets/SpaceDelivery.unity
+    guid: b881836256ed55c42b02b4f9bb8cf8cf
   m_configObjects: {}

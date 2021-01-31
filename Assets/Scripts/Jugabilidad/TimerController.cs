@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class TimerController : MonoBehaviour
     [SerializeField] Color32 badColor = default;
 
     [Header("Feature")]
-    [SerializeField] float limit = 3000.0f;
+    [SerializeField] float limit = 90000.0f;
     float currentTime = 0;
     bool isTicking = false;
     [SerializeField] StartMenu mainMenu = default;
@@ -28,6 +29,9 @@ public class TimerController : MonoBehaviour
 
     [Header("Win")]
     [SerializeField] VictoryMenu victoryMenu = default;
+
+
+   // public RobotPieces robotPieces;
 
     // [Header("Random SetUp")]
     // [SerializeField] bool randomTime = false;
@@ -47,11 +51,14 @@ public class TimerController : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
             displayTime();
+
             if ( currentTime <= 0 )
             {
                 StopTimer();
             }
         }
+
+
     }
 
     void displayTime()
@@ -70,10 +77,10 @@ public class TimerController : MonoBehaviour
          
     }
 
-    private void OnEnable() 
-    {
-        StartTimer();
-    }
+    //private void OnEnable() 
+   // {
+    //    StartTimer();
+   // }
 
     public void StartTimer()
     {
@@ -88,6 +95,9 @@ public class TimerController : MonoBehaviour
         gameObject.SetActive(false);
         mainMenu.gameObject.SetActive(true);
         stopTimerEvent.Invoke();
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("SpaceDelivery");
+
     }
 
     public void ResumeTimer()
