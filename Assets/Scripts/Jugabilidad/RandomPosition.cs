@@ -20,10 +20,7 @@ public class RandomPosition : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Organizar();
-        }
+
     }
 
     // FUNCION PARA ORGANIZAR
