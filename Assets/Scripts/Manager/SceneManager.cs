@@ -44,9 +44,7 @@ public class SceneManager : MonoBehaviour
      //   menu.SetActive(false);
         asteroid.AddInitialForce();
         StartCoroutine(ActivatePlayerController());
-        
-        
-        reticle.active = true;
+    
         if (m_musicSoundSystem != null)
             m_musicSoundSystem.PlayGameMusic();
     }
